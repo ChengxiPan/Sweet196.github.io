@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 5.4.2">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.12.2","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "d3842409"
+    });
+  daovoice('update');
+  </script>
+
+    <meta name="description" content="我的评价是逆天">
+<meta property="og:type" content="article">
+<meta property="og:title" content="并行程序设计实验">
+<meta property="og:url" content="http://example.com/2022/08/24/%E5%B9%B6%E8%A1%8C%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E5%AE%9E%E9%AA%8C/index.html">
+<meta property="og:site_name" content="慢慢走比较快">
+<meta property="og:description" content="我的评价是逆天">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://raw.githubusercontent.com/Sweet196/Picgo-images/main/ubuntu/%E6%88%AA%E5%9B%BE%202022-08-23%2021-33-31.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Sweet196/Picgo-images/main/ubuntu/%E6%88%AA%E5%9B%BE%202022-08-24%2019-49-10.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Sweet196/Picgo-images/main/problems/202208301243548.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Sweet196/Picgo-images/main/problems/202208301255848.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Sweet196/Picgo-images/main/problems/202208311556536.png">
+<meta property="article:published_time" content="2022-08-24T03:58:38.219Z">
+<meta property="article:modified_time" content="2023-05-22T02:35:01.373Z">
+<meta property="article:author" content="Sweet196">
+<meta property="article:tag" content="并行设计">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/Sweet196/Picgo-images/main/ubuntu/%E6%88%AA%E5%9B%BE%202022-08-23%2021-33-31.png">
+
+
+<link rel="canonical" href="http://example.com/2022/08/24/%E5%B9%B6%E8%A1%8C%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E5%AE%9E%E9%AA%8C/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2022/08/24/%E5%B9%B6%E8%A1%8C%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E5%AE%9E%E9%AA%8C/","path":"2022/08/24/并行程序设计实验/","title":"并行程序设计实验"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>并行程序设计实验 | 慢慢走比较快</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="慢慢走比较快" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <a target="_blank" rel="noopener" href="https://github.com/Sweet196" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">慢慢走比较快</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-archives"><a href="/archives" rel="section"><i class="fa fa-archive          //归档 fa-fw"></i>归档<span class="badge">18</span></a></li><li class="menu-item menu-item-categories"><a href="/categories" rel="section"><i class="fa fa-th           //分类 fa-fw"></i>分类<span class="badge">6</span></a></li><li class="menu-item menu-item-tags"><a href="/tags" rel="section"><i class="fa fa-tags                     //标签 fa-fw"></i>标签<span class="badge">7</span></a></li><li class="menu-item menu-item-about"><a href="/about" rel="section"><i class="fa fa-user                   //关于 fa-fw"></i>关于</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E4%B8%80%EF%BC%9A%E7%BC%96%E5%86%99Pthreads%E7%A8%8B%E5%BA%8F%E5%AE%9E%E7%8E%B0%E7%9B%B4%E6%96%B9%E5%9B%BE%E7%BB%9F%E8%AE%A1"><span class="nav-number">1.</span> <span class="nav-text">实验一：编写Pthreads程序实现直方图统计</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%97%AE%E9%A2%98%E6%8F%8F%E8%BF%B0%EF%BC%9A"><span class="nav-number">1.1.</span> <span class="nav-text">问题描述：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA"><span class="nav-number">1.2.</span> <span class="nav-text">输入输出</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3"><span class="nav-number">1.3.</span> <span class="nav-text">问题解决</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E4%BA%8C%EF%BC%9A%E4%BD%BF%E7%94%A8Pthread%E5%AE%9E%E7%8E%B0%E4%BB%BB%E5%8A%A1%E9%98%9F%E5%88%97"><span class="nav-number">2.</span> <span class="nav-text">实验二：使用Pthread实现任务队列</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%97%AE%E9%A2%98%E6%8F%8F%E8%BF%B0"><span class="nav-number">2.1.</span> <span class="nav-text">问题描述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3-1"><span class="nav-number">2.2.</span> <span class="nav-text">问题解决</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E4%B8%89%EF%BC%9A%E5%88%A9%E7%94%A8OpenMP%E8%AE%A1%E7%AE%97-pi-%E7%9A%84%E5%80%BC"><span class="nav-number">3.</span> <span class="nav-text">实验三：利用OpenMP计算 $\pi$ 的值</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%97%AE%E9%A2%98%E6%8F%8F%E8%BF%B0-1"><span class="nav-number">3.1.</span> <span class="nav-text">问题描述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3-2"><span class="nav-number">3.2.</span> <span class="nav-text">问题解决</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8critical%E8%AF%AD%E5%8F%A5%E5%AE%9E%E7%8E%B0"><span class="nav-number">3.2.1.</span> <span class="nav-text">使用critical语句实现</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8private%E5%AD%90%E5%8F%A5%E5%92%8Ccritical%E8%AF%AD%E5%8F%A5%E5%AE%9E%E7%8E%B0"><span class="nav-number">3.2.2.</span> <span class="nav-text">使用private子句和critical语句实现</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E5%9B%9B%EF%BC%9A%E7%BC%96%E5%86%99OpenMP%E7%A8%8B%E5%BA%8F%E5%AE%9E%E7%8E%B0%E7%94%9F%E4%BA%A7%E8%80%85%E6%B6%88%E8%B4%B9%E8%80%85%E6%A8%A1%E5%9E%8B"><span class="nav-number">4.</span> <span class="nav-text">实验四：编写OpenMP程序实现生产者消费者模型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%97%AE%E9%A2%98%E6%8F%8F%E8%BF%B0-2"><span class="nav-number">4.1.</span> <span class="nav-text">问题描述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3-3"><span class="nav-number">4.2.</span> <span class="nav-text">问题解决</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Sweet196"
+      src="https://raw.githubusercontent.com/Sweet196/Picgo-images/main/problems/202305212059399.jpg">
+  <p class="site-author-name" itemprop="name">Sweet196</p>
+  <div class="site-description" itemprop="description">Leisurely walking is faster in the end.</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives">
+          <span class="site-state-item-count">18</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Sweet196" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Sweet196" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:p3051329030@gmail.com" title="E-Mail → mailto:p3051329030@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/SweetDezBaby" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;SweetDezBaby" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/08/24/%E5%B9%B6%E8%A1%8C%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E5%AE%9E%E9%AA%8C/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://raw.githubusercontent.com/Sweet196/Picgo-images/main/problems/202305212059399.jpg">
+      <meta itemprop="name" content="Sweet196">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="慢慢走比较快">
+      <meta itemprop="description" content="Leisurely walking is faster in the end.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="并行程序设计实验 | 慢慢走比较快">
+      <meta itemprop="description" content="我的评价是逆天">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          并行程序设计实验
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-08-24 11:58:38" itemprop="dateCreated datePublished" datetime="2022-08-24T11:58:38+08:00">2022-08-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-05-22 10:35:01" itemprop="dateModified" datetime="2023-05-22T10:35:01+08:00">2023-05-22</time>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">我的评价是逆天</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h3 id="实验一：编写Pthreads程序实现直方图统计"><a href="#实验一：编写Pthreads程序实现直方图统计" class="headerlink" title="实验一：编写Pthreads程序实现直方图统计"></a>实验一：编写Pthreads程序实现直方图统计</h3><p>编写一个Pthreads程序实现直方图统计，选择使用忙等待、互斥量和信号量来保证临界区的互斥，并分析方法的优点和缺点。</p>
+<h4 id="问题描述："><a href="#问题描述：" class="headerlink" title="问题描述："></a>问题描述：</h4><p>一个程序生成大量的浮点数并存储在数组里，为了对数据分布有一个直观感受，绘制一个数据直方图。</p>
+<h4 id="输入输出"><a href="#输入输出" class="headerlink" title="输入输出"></a>输入输出</h4><p>输入：</p>
+<ul>
+<li>数据的个数：data_count</li>
+<li>一个大小为data_count的浮点数组：data</li>
+<li>包含最小值的桶中的最小值：min_meas</li>
+<li>包含最大值的桶中的最大值：max_meas</li>
+<li>桶的个数：bin_count</li>
+</ul>
+<p>输入样例：</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">20</span></span><br><span class="line"><span class="attribute">1</span>.<span class="number">3</span> <span class="number">2</span>.<span class="number">9</span> <span class="number">0</span>.<span class="number">4</span> <span class="number">0</span>.<span class="number">3</span> <span class="number">1</span>.<span class="number">3</span> <span class="number">4</span>.<span class="number">4</span> <span class="number">1</span>.<span class="number">7</span> <span class="number">0</span>.<span class="number">4</span> <span class="number">3</span>.<span class="number">2</span> <span class="number">0</span>.<span class="number">3</span> <span class="number">4</span>.<span class="number">9</span> <span class="number">2</span>.<span class="number">4</span> <span class="number">3</span>.<span class="number">1</span> <span class="number">4</span>.<span class="number">4</span> <span class="number">3</span>.<span class="number">9</span> <span class="number">0</span>.<span class="number">4</span> <span class="number">4</span>.<span class="number">2</span> <span class="number">4</span>.<span class="number">5</span> <span class="number">5</span>.<span class="number">9</span> <span class="number">0</span>.<span class="number">9</span></span><br><span class="line"><span class="attribute">5</span></span><br></pre></td></tr></table></figure>
+<p>输出：</p>
+<ul>
+<li>bin_maxes：一个大小为bin_count的浮点数组</li>
+<li>bin_counts：一个大小为bin_count的整数数组</li>
+</ul>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">bin_maxes</span>:<span class="number">4</span>.<span class="number">2</span> <span class="number">4</span>.<span class="number">4</span> <span class="number">4</span>.<span class="number">4</span> <span class="number">4</span>.<span class="number">5</span> <span class="number">4</span>.<span class="number">9</span> <span class="number">5</span>.<span class="number">9</span> </span><br><span class="line"><span class="attribute">bin_counts</span>:<span class="meta"></span></span><br><span class="line"><span class="meta">[0.3,1.3):6</span></span><br><span class="line"><span class="meta">[1.3,2.3):3</span></span><br><span class="line"><span class="meta">[2.3,3.3):4</span></span><br><span class="line"><span class="meta">[3.3,4.3):2</span></span><br><span class="line"><span class="meta">[4.3,5.3):4</span></span><br></pre></td></tr></table></figure>
+<p>其他说明：</p>
+<ul>
+<li><p>桶的宽度bin_width=(max_meas-min_meas)/bin_count</p>
+</li>
+<li><p>bin_maxes数据初始化</p>
+<p>for(b=0;b&lt;bin_count;b++) </p>
+<p>​        bin_maxes[b]=min_meas+bin_width*(b+1)</p>
+</li>
+<li><p>落在桶b中的数据bin_maxes[b-1]&lt;=measurement&lt;bin_maxes[b]</p>
+</li>
+<li><p>b=0: min_meas&lt;=measurement&lt;bin_maxes[0]</p>
+</li>
+<li><p>计数：for(i=0;i&lt;data_count;i++){</p>
+<p>​                    bin=Find_bin(data[i],bin_maxes,bin_count,min_meas);</p>
+<p>​            }</p>
+</li>
+</ul>
+<h4 id="问题解决"><a href="#问题解决" class="headerlink" title="问题解决"></a>问题解决</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;pthread.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">long</span> data_count;<span class="comment">//数据的个数</span></span><br><span class="line"><span class="type">long</span> bin_width;<span class="comment">//桶的宽度</span></span><br><span class="line">vector&lt;<span class="type">double</span>&gt;datas;<span class="comment">//浮点型数组，resize to data_count</span></span><br><span class="line"><span class="type">double</span> min_meas,max_meas;<span class="comment">//所有数字中的最大值和最小值</span></span><br><span class="line"><span class="type">long</span> bin_count;<span class="comment">//桶的个数</span></span><br><span class="line">vector&lt;<span class="type">double</span>&gt;bin_maxes;<span class="comment">//存储所有直方的右边界</span></span><br><span class="line">vector&lt;<span class="type">long</span>&gt;bin_counts;<span class="comment">//存储所有组的数字数量</span></span><br><span class="line"></span><br><span class="line"><span class="type">pthread_mutex_t</span> mutexx;<span class="comment">//互斥锁</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span>* <span class="title">func</span><span class="params">(<span class="type">void</span>* rank)</span></span>;</span><br><span class="line"><span class="function"><span class="type">long</span> <span class="title">Find_bin</span><span class="params">(<span class="type">double</span> data,vector&lt;<span class="type">double</span>&gt;bin_maxes,<span class="type">long</span> bin_count,<span class="type">double</span> min_meas)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">freopen</span>(<span class="string">&quot;testin.txt&quot;</span>,<span class="string">&quot;r&quot;</span>,stdin);</span><br><span class="line">    <span class="comment">// freopen(&quot;testout.txt&quot;,&quot;w&quot;,stdout);</span></span><br><span class="line">    cout&lt;&lt;<span class="string">&quot;Enter the number of data:&quot;</span>;</span><br><span class="line">    cin&gt;&gt;data_count;</span><br><span class="line">    datas.<span class="built_in">resize</span>(data_count);</span><br><span class="line">    cout&lt;&lt;<span class="string">&quot;Enter elements of data:&quot;</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">long</span> i=<span class="number">0</span>;i&lt;data_count;i++)&#123;</span><br><span class="line">        cin&gt;&gt;datas[i];</span><br><span class="line">    &#125;</span><br><span class="line">    cout&lt;&lt;<span class="string">&quot;Enter the number of bin:&quot;</span>;</span><br><span class="line">    cin&gt;&gt;bin_count;</span><br><span class="line">    bin_maxes.<span class="built_in">resize</span>(bin_count);</span><br><span class="line">    bin_counts.<span class="built_in">resize</span>(bin_count,<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">    max_meas=*<span class="built_in">max_element</span>(datas.<span class="built_in">begin</span>(),datas.<span class="built_in">end</span>());</span><br><span class="line">    min_meas=*<span class="built_in">min_element</span>(datas.<span class="built_in">begin</span>(),datas.<span class="built_in">end</span>());<span class="comment">//获取最大值和最小值</span></span><br><span class="line">    <span class="comment">// cout&lt;&lt;max_meas&lt;&lt;&quot; &quot;&lt;&lt;min_meas&lt;&lt;endl;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//桶的宽度（右边界=左边界+宽度）</span></span><br><span class="line">    bin_width=(max_meas-min_meas)/bin_count;</span><br><span class="line">    <span class="comment">// cout&lt;&lt;bin_width&lt;&lt;endl; </span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//bin_maxes的数据初始化</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">long</span> b=<span class="number">0</span>;b&lt;bin_count;b++)&#123;</span><br><span class="line">        bin_maxes[b]=min_meas+bin_width*(b+<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//输出bin_maxes:</span></span><br><span class="line">    cout&lt;&lt;<span class="string">&quot;bin_maxes:&quot;</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">auto</span> it=bin_maxes.<span class="built_in">begin</span>();it!=bin_maxes.<span class="built_in">end</span>();it++)&#123;</span><br><span class="line">        cout&lt;&lt;*it&lt;&lt;<span class="string">&quot; &quot;</span>;</span><br><span class="line">    &#125;cout&lt;&lt;endl;</span><br><span class="line"></span><br><span class="line">    <span class="type">pthread_t</span>* thread=(<span class="type">pthread_t</span>*)<span class="built_in">malloc</span>(data_count*<span class="built_in">sizeof</span>(<span class="type">pthread_t</span>));<span class="comment">//给线程开辟data_count个空间</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">long</span> i=<span class="number">0</span>;i&lt;data_count;i++)&#123;</span><br><span class="line">        <span class="built_in">pthread_create</span>(&amp;thread[i],<span class="literal">NULL</span>,func,(<span class="type">void</span>*)i);<span class="comment">//创建一个线程</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//输出bin_counts和对应的左右边界</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">long</span> i=<span class="number">0</span>;i&lt;bin_count;i++)&#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;[%.1lf,%.1lf):%ld\n&quot;</span>,bin_maxes[i]-bin_width,bin_maxes[i],bin_counts[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span>* <span class="title">func</span><span class="params">(<span class="type">void</span>* rank)</span></span>&#123;</span><br><span class="line">    <span class="type">long</span> i=(<span class="type">long</span>)rank;</span><br><span class="line">    <span class="comment">//对操作进行互斥访问</span></span><br><span class="line">    <span class="built_in">pthread_mutex_lock</span>(&amp;mutexx);</span><br><span class="line">    <span class="type">long</span> bin=<span class="built_in">Find_bin</span>(datas[i],bin_maxes,bin_count,min_meas);</span><br><span class="line">    <span class="built_in">pthread_mutex_unlock</span>(&amp;mutexx);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">long</span> <span class="title">Find_bin</span><span class="params">(<span class="type">double</span> data,vector&lt;<span class="type">double</span>&gt;bin_maxes,<span class="type">long</span> bin_count,<span class="type">double</span> min_meas)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(data&gt;=min_meas <span class="keyword">and</span> data&lt;bin_maxes[<span class="number">0</span>])&#123;</span><br><span class="line">        bin_counts[<span class="number">0</span>]++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">long</span> b=<span class="number">1</span>;b&lt;bin_count;b++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(data&gt;=bin_maxes[b<span class="number">-1</span>] <span class="keyword">and</span> data&lt;bin_maxes[b])&#123;</span><br><span class="line">                bin_counts[b]++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行结果如下图所示：</p>
+<p><img src="https://raw.githubusercontent.com/Sweet196/Picgo-images/main/ubuntu/%E6%88%AA%E5%9B%BE%202022-08-23%2021-33-31.png" style="zoom: 100%;" /></p>
+<h3 id="实验二：使用Pthread实现任务队列"><a href="#实验二：使用Pthread实现任务队列" class="headerlink" title="实验二：使用Pthread实现任务队列"></a>实验二：使用Pthread实现任务队列</h3><h4 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h4><p>编写一个Pthreads程序实现一个“任务队列”。主线程启动用户指定数量的线程，这些线程进入条件等待状态。主线程生成一些任务（一定计算量），每生成一个新的任务，就用条件变量唤醒一个线程，当这个唤醒线程执行完任务时，回到条件等待状态。当主线程生成完所有任务，设置全局变量表示再没有要生成的任务了，并用一个广播唤醒所有线程。为了清晰起见，建议任务采用链表操作。</p>
+<h4 id="问题解决-1"><a href="#问题解决-1" class="headerlink" title="问题解决"></a>问题解决</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;pthread.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> <span class="title class_">Node</span>&#123;</span><br><span class="line">    <span class="type">long</span> task;<span class="comment">//默认一个节点携带一个任务</span></span><br><span class="line">    Node* next;</span><br><span class="line">    <span class="built_in">Node</span>();</span><br><span class="line">    <span class="built_in">Node</span>(<span class="type">long</span> t,Node* p=<span class="literal">nullptr</span>)&#123;</span><br><span class="line">        task=t;</span><br><span class="line">        next=p;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;Node;</span><br><span class="line"></span><br><span class="line"><span class="comment">//定义队列的数据结构</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Queue</span>&#123;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    Node* head;</span><br><span class="line">    Node* tail;</span><br><span class="line">    <span class="type">int</span> length;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">Queue</span>()&#123;</span><br><span class="line">        Node* p=<span class="keyword">new</span> <span class="built_in">Node</span>(<span class="number">0</span>);</span><br><span class="line">        head=p;</span><br><span class="line">        tail=p;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">Display</span><span class="params">()</span></span>&#123;</span><br><span class="line">        Node* p=head-&gt;next;</span><br><span class="line">        <span class="keyword">if</span>(p==<span class="literal">nullptr</span>)&#123;</span><br><span class="line">            cout&lt;&lt;<span class="string">&quot;Queue is Empty!&quot;</span>&lt;&lt;endl;</span><br><span class="line">            <span class="keyword">return</span> ;</span><br><span class="line">        &#125;</span><br><span class="line">        cout&lt;&lt;<span class="string">&quot;Elements in Queue:&quot;</span>&lt;&lt;endl;</span><br><span class="line">        <span class="keyword">while</span>(p!=<span class="literal">nullptr</span>)&#123;</span><br><span class="line">            cout&lt;&lt;p-&gt;task&lt;&lt;<span class="string">&quot; &quot;</span>;</span><br><span class="line">            p=p-&gt;next;</span><br><span class="line">        &#125;     </span><br><span class="line">        cout&lt;&lt;endl;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">size</span><span class="params">()</span></span>&#123;<span class="keyword">return</span> length;&#125;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">push</span><span class="params">(<span class="type">long</span> val)</span></span>&#123;</span><br><span class="line">        Node* p=<span class="keyword">new</span> <span class="built_in">Node</span>(val);</span><br><span class="line">        tail-&gt;next=p;</span><br><span class="line">        tail=p;<span class="comment">//更新尾节点</span></span><br><span class="line">        length+=<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="type">long</span> <span class="title">pop</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="type">long</span> ret=head-&gt;next-&gt;task;</span><br><span class="line">        Node* p=head-&gt;next;</span><br><span class="line">        head-&gt;next=head-&gt;next-&gt;next;</span><br><span class="line">        <span class="keyword">delete</span> p;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="type">pthread_mutex_t</span> mutexx;<span class="comment">//两个互斥量</span></span><br><span class="line"><span class="type">int</span> thread_count;<span class="comment">//线程数量</span></span><br><span class="line"><span class="type">bool</span> finished=<span class="literal">false</span>;</span><br><span class="line">Queue q;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span>* <span class="title">task</span><span class="params">(<span class="type">void</span>* rank)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    cout&lt;&lt;<span class="string">&quot;Enter the number of threads:&quot;</span>&lt;&lt;endl;</span><br><span class="line">    cin&gt;&gt;thread_count;</span><br><span class="line">    cout&lt;&lt;<span class="string">&quot;Enter the number of tasks:&quot;</span>&lt;&lt;endl;</span><br><span class="line">    <span class="type">long</span> n;</span><br><span class="line">    cin&gt;&gt;n;</span><br><span class="line">    <span class="comment">//初始化队列</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">long</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">        q.<span class="built_in">push</span>(i);</span><br><span class="line">    &#125;</span><br><span class="line">    cout&lt;&lt;<span class="string">&quot;Elements in Queue:&quot;</span>&lt;&lt;endl;</span><br><span class="line">    q.<span class="built_in">Display</span>();</span><br><span class="line">    <span class="type">pthread_t</span>* threads=(<span class="type">pthread_t</span>*)<span class="built_in">malloc</span>(thread_count*<span class="built_in">sizeof</span>(<span class="type">pthread_t</span>));</span><br><span class="line">    <span class="comment">//创建线程</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">long</span> i=<span class="number">0</span>;i&lt;thread_count;i++)&#123;</span><br><span class="line">        <span class="built_in">pthread_create</span>(&amp;threads[i],<span class="literal">NULL</span>,task,(<span class="type">void</span>*)i);</span><br><span class="line">    &#125;</span><br><span class="line">    finished=<span class="literal">true</span>;</span><br><span class="line">    <span class="comment">//销毁线程</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">long</span> i=<span class="number">0</span>;i&lt;thread_count;i++)&#123;</span><br><span class="line">        <span class="built_in">pthread_join</span>(threads[i],<span class="literal">NULL</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">free</span>(threads);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span>* <span class="title">task</span><span class="params">(<span class="type">void</span>* rank)</span></span>&#123;</span><br><span class="line">    <span class="built_in">pthread_mutex_lock</span>(&amp;mutexx);</span><br><span class="line">    cout&lt;&lt;<span class="string">&quot;thread: &quot;</span>&lt;&lt;(<span class="type">long</span>)rank&lt;&lt;<span class="string">&quot;    task: &quot;</span>&lt;&lt;q.<span class="built_in">pop</span>()&lt;&lt;endl;</span><br><span class="line">    <span class="built_in">pthread_mutex_unlock</span>(&amp;mutexx);</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行结果如下：</p>
+<p><img src="https://raw.githubusercontent.com/Sweet196/Picgo-images/main/ubuntu/%E6%88%AA%E5%9B%BE%202022-08-24%2019-49-10.png" alt=""></p>
+<h3 id="实验三：利用OpenMP计算-pi-的值"><a href="#实验三：利用OpenMP计算-pi-的值" class="headerlink" title="实验三：利用OpenMP计算 $\pi$ 的值"></a>实验三：利用OpenMP计算 $\pi$ 的值</h3><h4 id="问题描述-1"><a href="#问题描述-1" class="headerlink" title="问题描述"></a>问题描述</h4><p>要求：用两种并行化方法实现，比进行比较分析</p>
+<h4 id="问题解决-2"><a href="#问题解决-2" class="headerlink" title="问题解决"></a>问题解决</h4><p>查阅 $\pi$ 的计算公式如下：</p>
+<script type="math/tex; mode=display">
+\pi =\int_{0}^{1} \frac{4}{1+x^2} dx = \frac{1}{n} \sum_{i=1}^{n} \frac{4}{i+(\frac{i+0.5}{n} )^2}</script><p>那思路就很简单了，将函数图像向$x$轴作无数条垂线，每两条垂线与图像形成一个梯形。在多个线程中计算梯形的面积，最后累加即可。</p>
+<p>函数：$f(x)= \frac{4}{1+x^2}$ ，可用下方代码表示：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">double</span>  <span class="title">f</span><span class="params">(<span class="type">double</span> x)</span><span class="comment">//函数</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="type">double</span> result;</span><br><span class="line">	result = <span class="number">4</span> / (<span class="number">1</span> + x * x);</span><br><span class="line">	<span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong><font color='red'>为了公平比较各种方法的运行效率，我假定将图形分为10000000个梯形。</font></strong></p>
+<h5 id="使用critical语句实现"><a href="#使用critical语句实现" class="headerlink" title="使用critical语句实现"></a>使用critical语句实现</h5><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;omp.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">double</span>  <span class="title">f</span><span class="params">(<span class="type">double</span> m)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="type">double</span> result;</span><br><span class="line">	result = <span class="number">4</span> / (<span class="number">1</span> + m * m);</span><br><span class="line">	<span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Trap</span><span class="params">(<span class="type">double</span> a, <span class="type">double</span> b, <span class="type">int</span> n, <span class="type">double</span>* global_result_p)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="type">double</span> h, x, t_result;  <span class="comment">//h是高，x横坐标，t_result是部分积分值</span></span><br><span class="line">	<span class="type">double</span> lflag, rflag;  <span class="comment">// lflag 是积分的左端点，rflag是积分的右端点的横坐标</span></span><br><span class="line">	<span class="type">int</span> i, my_n;<span class="comment">//my_n是每个线程分到的梯形数</span></span><br><span class="line">	<span class="type">int</span> my_rank = <span class="built_in">omp_get_thread_num</span>();<span class="comment">//当前线程号</span></span><br><span class="line">	<span class="type">int</span> thread_count = <span class="built_in">omp_get_num_threads</span>();<span class="comment">//线程数量</span></span><br><span class="line"> </span><br><span class="line">	h = (b - a) / n;  <span class="comment">//初始化梯形的宽度</span></span><br><span class="line">	my_n = n / thread_count;</span><br><span class="line">	lflag = a + my_rank * my_n * h;</span><br><span class="line">	rflag = lflag + my_n * h;</span><br><span class="line">	t_result = (<span class="built_in">f</span>(lflag) + <span class="built_in">f</span>(rflag))/<span class="number">2.0</span>;</span><br><span class="line">	<span class="keyword">for</span> ( i = <span class="number">1</span>; i &lt; my_n<span class="number">-1</span>; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		x = lflag + i * h;</span><br><span class="line">		t_result += <span class="built_in">f</span>(x);</span><br><span class="line">	&#125;</span><br><span class="line">	t_result = t_result * h;</span><br><span class="line"></span><br><span class="line">    <span class="meta"># <span class="keyword">pragma</span> omp critical</span></span><br><span class="line">	    * global_result_p += t_result;</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">(<span class="type">int</span> argc,<span class="type">char</span>* argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="type">double</span> ret = <span class="number">0.0</span>;</span><br><span class="line">	<span class="type">double</span> a = <span class="number">0</span>, b = <span class="number">1</span>;</span><br><span class="line">	<span class="type">int</span> n = <span class="number">100000</span>;<span class="comment">//分成若干份</span></span><br><span class="line">	<span class="type">int</span> thread_counts;</span><br><span class="line">	<span class="type">double</span> start_time;</span><br><span class="line">	<span class="type">double</span> end_time;</span><br><span class="line">	thread_counts = <span class="number">4</span>;</span><br><span class="line">	start_time = <span class="built_in">clock</span>();<span class="comment">//记录</span></span><br><span class="line">	</span><br><span class="line">    <span class="meta">#<span class="keyword">pragma</span> omp parallel num_threads(thread_counts)</span></span><br><span class="line">	<span class="built_in">Trap</span>(a, b, n, &amp;ret);</span><br><span class="line"> </span><br><span class="line">	end_time = <span class="built_in">clock</span>();<span class="comment">//记录</span></span><br><span class="line"> </span><br><span class="line">	<span class="type">double</span> runtime = (<span class="type">double</span>)(end_time - start_time) / CLOCKS_PER_SEC;</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;PI evaluation took: &quot;</span> &lt;&lt; ret &lt;&lt; endl;</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;Run time took: &quot;</span> &lt;&lt; runtime &lt;&lt; <span class="string">&quot;s&quot;</span> &lt;&lt; endl;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行结果如下图所示：</p>
+<p><img src="https://raw.githubusercontent.com/Sweet196/Picgo-images/main/problems/202208301243548.png" alt="image-20220830124307235"></p>
+<h5 id="使用private子句和critical语句实现"><a href="#使用private子句和critical语句实现" class="headerlink" title="使用private子句和critical语句实现"></a>使用private子句和critical语句实现</h5><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;omp.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="type">double</span>  <span class="title">f</span><span class="params">(<span class="type">double</span> m)</span>  </span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="type">double</span> result;</span><br><span class="line">	result = <span class="number">4</span> / (<span class="number">1</span> + m * m);</span><br><span class="line">	<span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="type">double</span> my_result, x;</span><br><span class="line">	<span class="type">double</span> local_a, local_b;</span><br><span class="line">	<span class="type">int</span> i, local_n;</span><br><span class="line">	</span><br><span class="line">	<span class="type">int</span> my_rank;</span><br><span class="line">	<span class="type">int</span> thread_count;</span><br><span class="line">	<span class="type">double</span> h; </span><br><span class="line">	<span class="type">double</span> ret = <span class="number">0.0</span>;</span><br><span class="line">	<span class="type">double</span> a = <span class="number">0</span>, b = <span class="number">1</span>;</span><br><span class="line">	<span class="type">int</span> n = <span class="number">10000000</span>;</span><br><span class="line">	</span><br><span class="line">	<span class="type">int</span> thread_counts;</span><br><span class="line">	<span class="type">double</span> start_time;</span><br><span class="line">	<span class="type">double</span> end_time;</span><br><span class="line"> </span><br><span class="line">	thread_counts = <span class="number">4</span>;</span><br><span class="line"> </span><br><span class="line">	start_time = <span class="built_in">clock</span>();</span><br><span class="line">    <span class="meta"># <span class="keyword">pragma</span> omp parallel private(x,my_result,local_a,local_b,i, local_n,my_rank,thread_count,h)</span></span><br><span class="line">	&#123;</span><br><span class="line">	    my_rank = <span class="built_in">omp_get_thread_num</span>();</span><br><span class="line">		thread_count = <span class="built_in">omp_get_num_threads</span>();</span><br><span class="line">		h = (b - a) / n;</span><br><span class="line">		local_n = n / thread_count;</span><br><span class="line">		local_a = a + my_rank * local_n * h;</span><br><span class="line">		local_b = local_a + local_n * h;</span><br><span class="line">		my_result = (<span class="built_in">f</span>(local_a) + <span class="built_in">f</span>(local_b)) / <span class="number">2.0</span>;</span><br><span class="line">		<span class="keyword">for</span> (i = <span class="number">1</span>; i &lt; local_n - <span class="number">1</span>; i++)</span><br><span class="line">		&#123;</span><br><span class="line">			x = local_a + i * h;</span><br><span class="line">			my_result += <span class="built_in">f</span>(x);</span><br><span class="line">		&#125;</span><br><span class="line">		my_result = my_result * h;</span><br><span class="line">    <span class="meta"># <span class="keyword">pragma</span> omp critical</span></span><br><span class="line">		ret += my_result;</span><br><span class="line">	&#125;</span><br><span class="line">	end_time = <span class="built_in">clock</span>();</span><br><span class="line"> </span><br><span class="line">	<span class="type">double</span> runtime = (<span class="type">double</span>)(end_time - start_time) / CLOCKS_PER_SEC;</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;PI evaluation took: &quot;</span> &lt;&lt; ret &lt;&lt; endl;</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;Run time took: &quot;</span> &lt;&lt; runtime &lt;&lt; <span class="string">&quot;s&quot;</span> &lt;&lt; endl;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行结果如下图所示：</p>
+<p><img src="https://raw.githubusercontent.com/Sweet196/Picgo-images/main/problems/202208301255848.png" alt="image-20220830125004441"></p>
+<h3 id="实验四：编写OpenMP程序实现生产者消费者模型"><a href="#实验四：编写OpenMP程序实现生产者消费者模型" class="headerlink" title="实验四：编写OpenMP程序实现生产者消费者模型"></a>实验四：编写OpenMP程序实现生产者消费者模型</h3><h4 id="问题描述-2"><a href="#问题描述-2" class="headerlink" title="问题描述"></a>问题描述</h4><p>编写OpenMP程序，一些线程是生产者，一些线程是消费者。在文件集合中，每个生产者针对一个文件，从文件中读取文本，将读出的文本行插入到一个共享的队列中。消费者从队列中取出文本行，并对文本行进行分词（strtok函数）。符号是被空白符分开的单词，当消费者发现一个单词后，将单词输出。（体会线程安全性）</p>
+<h4 id="问题解决-3"><a href="#问题解决-3" class="headerlink" title="问题解决"></a>问题解决</h4><p>生产者：线程随机产生整数“消息”和消息的目标线程，发送消息给目标线程</p>
+<p>消费者：线程从自己的消息队列中取出消息并打印该消息</p>
+<p>仍然才用类似于实验二的<strong>队列</strong>数据结构，文件Queue.h的编写如下：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> <span class="title class_">Node</span>&#123;</span><br><span class="line">    <span class="type">long</span> task;<span class="comment">//默认一个节点携带一个任务</span></span><br><span class="line">    Node* next;</span><br><span class="line">    <span class="built_in">Node</span>();</span><br><span class="line">    <span class="built_in">Node</span>(<span class="type">long</span> t,Node* p=<span class="literal">nullptr</span>)&#123;</span><br><span class="line">        task=t;</span><br><span class="line">        next=p;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;Node;</span><br><span class="line"></span><br><span class="line"><span class="comment">//定义队列的数据结构</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Queue</span>&#123;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    Node* head;</span><br><span class="line">    Node* tail;</span><br><span class="line">    <span class="type">int</span> length;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">Queue</span>()&#123;</span><br><span class="line">        Node* p=<span class="keyword">new</span> <span class="built_in">Node</span>(<span class="number">0</span>);</span><br><span class="line">        head=p;</span><br><span class="line">        tail=p;</span><br><span class="line">        length=<span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">Display</span><span class="params">()</span></span>&#123;</span><br><span class="line">        Node* p=head-&gt;next;</span><br><span class="line">        <span class="keyword">if</span>(p==<span class="literal">nullptr</span>)&#123;</span><br><span class="line">            cout&lt;&lt;<span class="string">&quot;Queue is Empty!&quot;</span>&lt;&lt;endl;</span><br><span class="line">            <span class="keyword">return</span> ;</span><br><span class="line">        &#125;</span><br><span class="line">        cout&lt;&lt;<span class="string">&quot;Elements in Queue:&quot;</span>&lt;&lt;endl;</span><br><span class="line">        <span class="keyword">while</span>(p!=<span class="literal">nullptr</span>)&#123;</span><br><span class="line">            cout&lt;&lt;p-&gt;task&lt;&lt;<span class="string">&quot; &quot;</span>;</span><br><span class="line">            p=p-&gt;next;</span><br><span class="line">        &#125;     </span><br><span class="line">        cout&lt;&lt;endl;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">size</span><span class="params">()</span></span>&#123;<span class="keyword">return</span> length;&#125;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">push</span><span class="params">(<span class="type">long</span> val)</span></span>&#123;</span><br><span class="line">        Node* p=<span class="keyword">new</span> <span class="built_in">Node</span>(val);</span><br><span class="line">        tail-&gt;next=p;</span><br><span class="line">        tail=p;<span class="comment">//更新尾节点</span></span><br><span class="line">        length+=<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="type">long</span> <span class="title">pop</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="type">long</span> ret=head-&gt;next-&gt;task;</span><br><span class="line">        Node* p=head-&gt;next;</span><br><span class="line">        head-&gt;next=head-&gt;next-&gt;next;</span><br><span class="line">        length-=<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">delete</span> p;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>进行生产者-消费者的并行编写：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;omp.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&quot;Queue.h&quot;</span></span></span><br><span class="line"></span><br><span class="line">Queue q;<span class="comment">//生产者队列</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Send</span><span class="params">(<span class="type">int</span> i)</span></span>&#123;</span><br><span class="line">	q.<span class="built_in">push</span>(i);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Receive</span><span class="params">()</span></span>&#123;</span><br><span class="line">	q.<span class="built_in">Display</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="type">int</span> thread_count;</span><br><span class="line">	cout&lt;&lt;<span class="string">&quot;Enter the number of threads:&quot;</span>;</span><br><span class="line">	cin&gt;&gt;thread_count;</span><br><span class="line"></span><br><span class="line">	<span class="meta">#<span class="keyword">pragma</span> omp parallel num_threads(thread_count)<span class="comment">//开辟线程</span></span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="meta">#<span class="keyword">pragma</span> omp for<span class="comment">//分配线程</span></span></span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;thread_count;i++)&#123;</span><br><span class="line">			cout&lt;&lt;<span class="string">&quot;create thread:&quot;</span>&lt;&lt;<span class="built_in">omp_get_thread_num</span>();</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">//路障</span></span><br><span class="line">		<span class="meta">#<span class="keyword">pragma</span> omp barrier</span></span><br><span class="line"></span><br><span class="line">		<span class="type">int</span> msgs;</span><br><span class="line">		<span class="meta">#<span class="keyword">pragma</span> imp for private(msgs)<span class="comment">//private保障线程安全</span></span></span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;thread_count;i++)&#123;</span><br><span class="line">			<span class="keyword">for</span>(msgs=<span class="number">0</span>;msgs&lt;thread_count;msgs++)</span><br><span class="line">			&#123;</span><br><span class="line">				<span class="built_in">Send</span>(i);</span><br><span class="line">				<span class="built_in">Receive</span>();</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行结果如下图所示：</p>
+<p><img src="https://raw.githubusercontent.com/Sweet196/Picgo-images/main/problems/202208311556536.png" alt="image-20220831155604332"></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%B9%B6%E8%A1%8C%E8%AE%BE%E8%AE%A1/" rel="tag"># 并行设计</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/08/22/Pthread%E5%AD%A6%E4%B9%A0%E6%96%87%E6%A1%A3/" rel="prev" title="Pthread学习文档">
+                  <i class="fa fa-chevron-left"></i> Pthread学习文档
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/09/15/seaborn/" rel="next" title="seaborn">
+                  seaborn <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Sweet196</span>
+</div>
+  <!--
+    <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+  -->
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"mhchem":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+
+  
+  <script type="text/javascript"
+  color="0,0,255" opacity='0.45' zIndex="-2" count="90" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","model":{"jsonPath":"live2d-widget-model-wanko"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false,"tagMode":false});</script></body>
+</html>

@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 5.4.2">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.12.2","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "d3842409"
+    });
+  daovoice('update');
+  </script>
+
+    <meta name="description" content="4.5  请修改使用互斥量的π计算程序，使临界区在for循环内。这个版本的性能与原来的忙等待版本相比如何？我们怎样解释它？">
+<meta property="og:type" content="article">
+<meta property="og:title" content="并行程序设计第二次作业">
+<meta property="og:url" content="http://example.com/2022/08/21/%E5%B9%B6%E8%A1%8C%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E4%BA%8C%E6%AC%A1%E4%BD%9C%E4%B8%9A/index.html">
+<meta property="og:site_name" content="慢慢走比较快">
+<meta property="og:description" content="4.5  请修改使用互斥量的π计算程序，使临界区在for循环内。这个版本的性能与原来的忙等待版本相比如何？我们怎样解释它？">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://raw.githubusercontent.com/Sweet196/Picgo-images/main/problems/202208211824314.png">
+<meta property="article:published_time" content="2022-08-21T12:26:41.618Z">
+<meta property="article:modified_time" content="2023-05-22T02:35:01.719Z">
+<meta property="article:author" content="Sweet196">
+<meta property="article:tag" content="并行设计">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/Sweet196/Picgo-images/main/problems/202208211824314.png">
+
+
+<link rel="canonical" href="http://example.com/2022/08/21/%E5%B9%B6%E8%A1%8C%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E4%BA%8C%E6%AC%A1%E4%BD%9C%E4%B8%9A/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2022/08/21/%E5%B9%B6%E8%A1%8C%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E4%BA%8C%E6%AC%A1%E4%BD%9C%E4%B8%9A/","path":"2022/08/21/并行程序设计-第二次作业/","title":"并行程序设计第二次作业"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>并行程序设计第二次作业 | 慢慢走比较快</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="慢慢走比较快" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <a target="_blank" rel="noopener" href="https://github.com/Sweet196" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">慢慢走比较快</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-archives"><a href="/archives" rel="section"><i class="fa fa-archive          //归档 fa-fw"></i>归档<span class="badge">18</span></a></li><li class="menu-item menu-item-categories"><a href="/categories" rel="section"><i class="fa fa-th           //分类 fa-fw"></i>分类<span class="badge">6</span></a></li><li class="menu-item menu-item-tags"><a href="/tags" rel="section"><i class="fa fa-tags                     //标签 fa-fw"></i>标签<span class="badge">7</span></a></li><li class="menu-item menu-item-about"><a href="/about" rel="section"><i class="fa fa-user                   //关于 fa-fw"></i>关于</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-5-%E8%AF%B7%E4%BF%AE%E6%94%B9%E4%BD%BF%E7%94%A8%E4%BA%92%E6%96%A5%E9%87%8F%E7%9A%84%CF%80%E8%AE%A1%E7%AE%97%E7%A8%8B%E5%BA%8F%EF%BC%8C%E4%BD%BF%E4%B8%B4%E7%95%8C%E5%8C%BA%E5%9C%A8for%E5%BE%AA%E7%8E%AF%E5%86%85%E3%80%82%E8%BF%99%E4%B8%AA%E7%89%88%E6%9C%AC%E7%9A%84%E6%80%A7%E8%83%BD%E4%B8%8E%E5%8E%9F%E6%9D%A5%E7%9A%84%E5%BF%99%E7%AD%89%E5%BE%85%E7%89%88%E6%9C%AC%E7%9B%B8%E6%AF%94%E5%A6%82%E4%BD%95%EF%BC%9F%E6%88%91%E4%BB%AC%E6%80%8E%E6%A0%B7%E8%A7%A3%E9%87%8A%E5%AE%83%EF%BC%9F"><span class="nav-number">1.</span> <span class="nav-text">4.5  请修改使用互斥量的π计算程序，使临界区在for循环内。这个版本的性能与原来的忙等待版本相比如何？我们怎样解释它？</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%BF%99%E7%AD%89%E5%BE%85"><span class="nav-number">1.1.</span> <span class="nav-text">忙等待</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BA%92%E6%96%A5%E9%87%8F"><span class="nav-number">1.2.</span> <span class="nav-text">互斥量</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-6-%E8%AF%B7%E4%BF%AE%E6%94%B9%E4%BD%BF%E7%94%A8%E4%BA%92%E6%96%A5%E9%87%8F%E7%9A%84%CF%80%E8%AE%A1%E7%AE%97%E7%A8%8B%E5%BA%8F%EF%BC%8C%E4%BD%BF%E7%94%A8%E4%BF%A1%E5%8F%B7%E9%87%8F%E6%9B%BF%E4%BB%A3%E4%BA%92%E6%96%A5%E9%87%8F%E3%80%82%E8%BF%99%E4%B8%AA%E7%89%88%E6%9C%AC%E7%9A%84%E6%80%A7%E8%83%BD%E4%B8%8E%E4%BA%92%E6%96%A5%E9%87%8F%E7%89%88%E6%9C%AC%E7%9B%B8%E6%AF%94%E5%A6%82%E4%BD%95%EF%BC%9F"><span class="nav-number">2.</span> <span class="nav-text">4.6 请修改使用互斥量的π计算程序，使用信号量替代互斥量。这个版本的性能与互斥量版本相比如何？</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BF%A1%E5%8F%B7%E9%87%8F"><span class="nav-number">2.1.</span> <span class="nav-text">信号量</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-7-%E5%B0%BD%E7%AE%A1%E7%94%9F%E4%BA%A7%E8%80%85%E4%B8%80%E6%B6%88%E8%B4%B9%E8%80%85%E5%90%8C%E6%AD%A5%E9%87%87%E7%94%A8%E4%BF%A1%E5%8F%B7%E9%87%8F%E5%BE%88%E5%AE%B9%E6%98%93%E5%AE%9E%E7%8E%B0%EF%BC%8C%E4%BD%86%E5%AE%83%E4%B9%9F%E8%83%BD%E7%94%A8%E4%BA%92%E6%96%A5%E9%87%8F%E6%9D%A5%E5%AE%9E%E7%8E%B0%E3%80%82"><span class="nav-number">3.</span> <span class="nav-text">4.7 尽管生产者一消费者同步采用信号量很容易实现，但它也能用互斥量来实现。</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%80%9D%E8%B7%AF"><span class="nav-number">3.1.</span> <span class="nav-text">解决思路</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8F%8C%E7%BA%BF%E7%A8%8B"><span class="nav-number">3.2.</span> <span class="nav-text">双线程</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2k%E8%BF%9B%E7%A8%8B"><span class="nav-number">3.3.</span> <span class="nav-text">2k进程</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%97%A2%E6%98%AF%E6%B6%88%E8%B4%B9%E8%80%85%E5%8F%88%E6%98%AF%E7%94%9F%E4%BA%A7%E8%80%85"><span class="nav-number">3.4.</span> <span class="nav-text">既是消费者又是生产者</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#q%E5%90%91-q-1-modt%E5%8F%91%E9%80%81%EF%BC%8C%E4%BB%8E-q-1-modt%E6%8E%A5%E6%94%B6"><span class="nav-number">3.5.</span> <span class="nav-text">q向(q+1)modt发送，从(q-1)modt接收</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Sweet196"
+      src="https://raw.githubusercontent.com/Sweet196/Picgo-images/main/problems/202305212059399.jpg">
+  <p class="site-author-name" itemprop="name">Sweet196</p>
+  <div class="site-description" itemprop="description">Leisurely walking is faster in the end.</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives">
+          <span class="site-state-item-count">18</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Sweet196" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Sweet196" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:p3051329030@gmail.com" title="E-Mail → mailto:p3051329030@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/SweetDezBaby" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;SweetDezBaby" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/08/21/%E5%B9%B6%E8%A1%8C%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E4%BA%8C%E6%AC%A1%E4%BD%9C%E4%B8%9A/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://raw.githubusercontent.com/Sweet196/Picgo-images/main/problems/202305212059399.jpg">
+      <meta itemprop="name" content="Sweet196">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="慢慢走比较快">
+      <meta itemprop="description" content="Leisurely walking is faster in the end.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="并行程序设计第二次作业 | 慢慢走比较快">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          并行程序设计第二次作业
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-08-21 20:26:41" itemprop="dateCreated datePublished" datetime="2022-08-21T20:26:41+08:00">2022-08-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-05-22 10:35:01" itemprop="dateModified" datetime="2023-05-22T10:35:01+08:00">2023-05-22</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h4 id="4-5-请修改使用互斥量的π计算程序，使临界区在for循环内。这个版本的性能与原来的忙等待版本相比如何？我们怎样解释它？"><a href="#4-5-请修改使用互斥量的π计算程序，使临界区在for循环内。这个版本的性能与原来的忙等待版本相比如何？我们怎样解释它？" class="headerlink" title="4.5  请修改使用互斥量的π计算程序，使临界区在for循环内。这个版本的性能与原来的忙等待版本相比如何？我们怎样解释它？"></a>4.5  请修改使用互斥量的π计算程序，使临界区在for循环内。这个版本的性能与原来的忙等待版本相比如何？我们怎样解释它？</h4><p>首先查询$\pi$的计算公式<script type="math/tex">\pi=4 \times (1-\frac{1}{3}+\frac{1}{5}-\frac{1}{7}+...+\frac{(-1)^n}{2n+1}+...)</script></p>
+<p>思路相对简单，用多个线程处理计算，并将所有的计算都累加，最后得出$\pi$的值.</p>
+<h5 id="忙等待"><a href="#忙等待" class="headerlink" title="忙等待"></a>忙等待</h5><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;pthread.h&gt;</span></span></span><br><span class="line"> </span><br><span class="line"><span class="type">int</span> thread_count;<span class="comment">//线程数量</span></span><br><span class="line"><span class="type">double</span> sum = <span class="number">0.0</span>;</span><br><span class="line"><span class="type">int</span> flag = <span class="number">0</span>;                </span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="type">void</span> *<span class="title">Thread_sum</span><span class="params">(<span class="type">void</span>* rank)</span></span>;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">(<span class="type">int</span> argc,<span class="type">char</span>* argv[])</span></span>&#123;</span><br><span class="line">	<span class="type">long</span> thread;</span><br><span class="line">	<span class="type">pthread_t</span>* thread_handles;	</span><br><span class="line">	thread_count = <span class="built_in">strtol</span>(argv[<span class="number">1</span>],<span class="literal">NULL</span>,<span class="number">10</span>);<span class="comment">//获取线程数量（即终端输入）</span></span><br><span class="line">	thread_handles = <span class="built_in">malloc</span>(thread_count*<span class="built_in">sizeof</span>(<span class="type">pthread_t</span>));<span class="comment">//分配空间</span></span><br><span class="line"> </span><br><span class="line">	<span class="keyword">for</span>(thread = <span class="number">0</span>;thread &lt; thread_count;thread++)&#123;</span><br><span class="line">        <span class="comment">//创建线程</span></span><br><span class="line">		<span class="built_in">pthread_create</span>(&amp;thread_handles[thread],<span class="literal">NULL</span>,Thread_sum,(<span class="type">void</span>*)thread);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(thread = <span class="number">0</span>;thread &lt; thread_count;thread++)&#123;</span><br><span class="line">        <span class="comment">//等待上一个进程结束</span></span><br><span class="line">		<span class="built_in">pthread_join</span>(thread_handles[thread],<span class="literal">NULL</span>);</span><br><span class="line"> </span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">free</span>(thread_handles);<span class="comment">//释放空间</span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%f&quot;</span>,<span class="number">4</span>*sum);<span class="comment">//输出结果</span></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;<span class="comment">//main</span></span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="type">void</span> *<span class="title">Thread_sum</span><span class="params">(<span class="type">void</span> *rank)</span></span>&#123;</span><br><span class="line">	<span class="type">long</span> my_rank=(<span class="type">long</span>)rank;</span><br><span class="line">	<span class="type">double</span> factor,my_sum = <span class="number">0.0</span>;</span><br><span class="line">	<span class="type">long</span> <span class="type">long</span> i;</span><br><span class="line">	<span class="type">long</span> <span class="type">long</span> my_n = n/thread_count;</span><br><span class="line">	<span class="type">long</span> <span class="type">long</span> my_first_i = my_n*my_rank;</span><br><span class="line">	<span class="type">long</span> <span class="type">long</span> my_last_i = my_first_i + my_n;</span><br><span class="line"> </span><br><span class="line">	<span class="keyword">if</span>(my_first_i % <span class="number">2</span> == <span class="number">0</span>)</span><br><span class="line">		factor = <span class="number">1.0</span>;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">        factor = <span class="number">-1.0</span>;</span><br><span class="line"> </span><br><span class="line">	<span class="keyword">for</span>(i = my_first_i;i &lt; my_last_i;i++,factor = -factor)&#123;</span><br><span class="line">		my_sum += factor/(<span class="number">2</span>*i+<span class="number">1</span>);</span><br><span class="line">	&#125;</span><br><span class="line"> </span><br><span class="line">	<span class="comment">//Use Busy-Waiting to solve critical sections after loop</span></span><br><span class="line">	<span class="keyword">while</span>(flag != my_rank);</span><br><span class="line">	sum += my_sum;</span><br><span class="line">	flag = (flag+<span class="number">1</span>) % thread_count;</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">&#125;<span class="comment">//Thread_sum</span></span><br><span class="line"> </span><br></pre></td></tr></table></figure>
+<p>忙等待的方法使用了while循环，持续占用CPU资源，且执行相加的顺序是按照编号的，可行性不足。</p>
+<h5 id="互斥量"><a href="#互斥量" class="headerlink" title="互斥量"></a>互斥量</h5><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;pthread.h&gt;</span></span></span><br><span class="line"> </span><br><span class="line"><span class="type">int</span> thread_count; </span><br><span class="line"><span class="type">double</span> sum = <span class="number">0.0</span>;</span><br><span class="line"><span class="type">int</span> flag = <span class="number">0</span>;                </span><br><span class="line"><span class="type">pthread_mutex_t</span> mutex;<span class="comment">//实现互斥访问</span></span><br><span class="line"><span class="function"><span class="type">void</span> *<span class="title">Thread_sum</span><span class="params">(<span class="type">void</span>* rank)</span></span>;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">(<span class="type">int</span> argc,<span class="type">char</span>* argv[])</span></span>&#123;</span><br><span class="line">	<span class="type">long</span> thread;</span><br><span class="line">	<span class="type">pthread_t</span>* thread_handles;</span><br><span class="line"> 	<span class="comment">//输入线程总数</span></span><br><span class="line">	thread_count = <span class="built_in">strtol</span>(argv[<span class="number">1</span>],<span class="literal">NULL</span>,<span class="number">10</span>);</span><br><span class="line">	thread_handles = <span class="built_in">malloc</span>(thread_count*<span class="built_in">sizeof</span>(<span class="type">pthread_t</span>));</span><br><span class="line"> 	<span class="comment">//初始化互斥访问区</span></span><br><span class="line">    </span><br><span class="line">	<span class="built_in">pthread_mutex_init</span>(&amp;mutex,<span class="literal">NULL</span>);</span><br><span class="line">	<span class="keyword">for</span>(thread = <span class="number">0</span>;thread &lt; thread_count;thread++)&#123;</span><br><span class="line">        <span class="comment">//创建一个线程</span></span><br><span class="line">		<span class="built_in">pthread_create</span>(&amp;thread_handles[thread],<span class="literal">NULL</span>,Thread_sum,(<span class="type">void</span>*)thread);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(thread = <span class="number">0</span>;thread &lt; thread_count;thread++)&#123;</span><br><span class="line">		<span class="built_in">pthread_join</span>(thread_handles[thread],<span class="literal">NULL</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">free</span>(thread_handles);<span class="comment">//释放空间</span></span><br><span class="line">	<span class="built_in">pthread_mutex_destroy</span>(&amp;mutex);</span><br><span class="line"> </span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%f&quot;</span>,<span class="number">4</span>*sum);</span><br><span class="line">&#125;<span class="comment">//main</span></span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="type">void</span> *<span class="title">Thread_sum</span><span class="params">(<span class="type">void</span> *rank)</span></span>&#123;</span><br><span class="line">	<span class="type">long</span> my_rank=(<span class="type">long</span>)rank;</span><br><span class="line">	<span class="type">double</span> factor,my_sum = <span class="number">0.0</span>;</span><br><span class="line">	<span class="type">long</span> <span class="type">long</span> i;</span><br><span class="line">	<span class="type">long</span> <span class="type">long</span> my_n = n/thread_count;</span><br><span class="line">	<span class="type">long</span> <span class="type">long</span> my_first_i = my_n*my_rank;</span><br><span class="line">	<span class="type">long</span> <span class="type">long</span> my_last_i = my_first_i + my_n;</span><br><span class="line">	<span class="keyword">if</span>(my_first_i % <span class="number">2</span> == <span class="number">0</span>)</span><br><span class="line">		factor = <span class="number">1.0</span>;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		factor = <span class="number">-1.0</span>;</span><br><span class="line">	<span class="keyword">for</span>(i = my_first_i;i &lt; my_last_i;i++,factor = -factor)&#123;</span><br><span class="line">		my_sum += factor/(<span class="number">2</span>*i+<span class="number">1</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">pthread_mutex_lock</span>(&amp;mutex);</span><br><span class="line">	sum += my_sum;</span><br><span class="line">	<span class="built_in">pthread_mutex_unlock</span>(&amp;mutex);</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">&#125;<span class="comment">//Thread_sum</span></span><br><span class="line"> </span><br></pre></td></tr></table></figure>
+<p>通过使用枷锁方法pthread_)mutex_lock()和解锁方法pthread_mutex_unlock()实现每次只有一个线程访问临界区，可以解决对关键部分的冲突访问。</p>
+<h4 id="4-6-请修改使用互斥量的π计算程序，使用信号量替代互斥量。这个版本的性能与互斥量版本相比如何？"><a href="#4-6-请修改使用互斥量的π计算程序，使用信号量替代互斥量。这个版本的性能与互斥量版本相比如何？" class="headerlink" title="4.6 请修改使用互斥量的π计算程序，使用信号量替代互斥量。这个版本的性能与互斥量版本相比如何？"></a>4.6 请修改使用互斥量的π计算程序，使用信号量替代互斥量。这个版本的性能与互斥量版本相比如何？</h4><h5 id="信号量"><a href="#信号量" class="headerlink" title="信号量"></a>信号量</h5><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;pthread.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;semaphore.h&gt;</span></span></span><br><span class="line"> </span><br><span class="line"><span class="type">int</span> thread_count;<span class="comment">//线程数量</span></span><br><span class="line"><span class="type">double</span> sum = <span class="number">0.0</span>;</span><br><span class="line"><span class="type">int</span> flag = <span class="number">0</span>;                </span><br><span class="line"><span class="type">sem_t</span> sem;<span class="comment">//信号量sem</span></span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="type">void</span> *<span class="title">Thread_sum</span><span class="params">(<span class="type">void</span>* rank)</span></span>;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">(<span class="type">int</span> argc,<span class="type">char</span>* argv[])</span></span>&#123;</span><br><span class="line">	<span class="type">long</span> thread;</span><br><span class="line">	<span class="type">pthread_t</span>* thread_handles;</span><br><span class="line"> 	<span class="comment">//输入线程数量</span></span><br><span class="line">	thread_count = <span class="built_in">strtol</span>(argv[<span class="number">1</span>],<span class="literal">NULL</span>,<span class="number">10</span>);</span><br><span class="line">	thread_handles = <span class="built_in">malloc</span>(thread_count*<span class="built_in">sizeof</span>(<span class="type">pthread_t</span>));<span class="comment">//为线程分配空间</span></span><br><span class="line">	<span class="comment">//初始化信号量 </span></span><br><span class="line">	<span class="built_in">sem_init</span>(&amp;sem,<span class="number">0</span>,<span class="number">1</span>);</span><br><span class="line">    </span><br><span class="line">	<span class="keyword">for</span>(thread = <span class="number">0</span>;thread &lt; thread_count;thread++)&#123;</span><br><span class="line">		<span class="comment">//创建线程 </span></span><br><span class="line">		<span class="built_in">pthread_create</span>(&amp;thread_handles[thread],<span class="literal">NULL</span>,Thread_sum,(<span class="type">void</span>*)thread);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(thread = <span class="number">0</span>;thread &lt; thread_count;thread++)&#123;</span><br><span class="line">		<span class="built_in">pthread_join</span>(thread_handles[thread],<span class="literal">NULL</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">free</span>(thread_handles);<span class="comment">//释放空间</span></span><br><span class="line">	<span class="built_in">sem_destroy</span>(&amp;sem);<span class="comment">//释放空间	</span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%f&quot;</span>,<span class="number">4</span>*sum);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> *<span class="title">Thread_sum</span><span class="params">(<span class="type">void</span> *rank)</span></span>&#123;</span><br><span class="line">	<span class="type">long</span> my_rank=(<span class="type">long</span>)rank;</span><br><span class="line">	<span class="type">double</span> factor,my_sum = <span class="number">0.0</span>;</span><br><span class="line">	<span class="type">long</span> <span class="type">long</span> i;</span><br><span class="line">	<span class="type">long</span> <span class="type">long</span> my_n = n/thread_count;</span><br><span class="line">	<span class="type">long</span> <span class="type">long</span> my_first_i = my_n*my_rank;</span><br><span class="line">	<span class="type">long</span> <span class="type">long</span> my_last_i = my_first_i + my_n;</span><br><span class="line">	<span class="keyword">if</span>(my_first_i % <span class="number">2</span> == <span class="number">0</span>)</span><br><span class="line">		factor = <span class="number">1.0</span>;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		factor = <span class="number">-1.0</span>;</span><br><span class="line">	<span class="keyword">for</span>(i = my_first_i;i &lt; my_last_i;i++,factor = -factor)&#123;</span><br><span class="line">		my_sum += factor/(<span class="number">2</span>*i+<span class="number">1</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">sem_wait</span>(&amp;sem);</span><br><span class="line">	sum += my_sum;</span><br><span class="line">	<span class="built_in">sem_post</span>(&amp;sem);</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br></pre></td></tr></table></figure>
+<p>初始化设定sem=1，所以在第一个要访问临界区的线程，运行sem_wait（sem），sem减一，并可以访问临界区。而其他线程执行sem_wait（sem）时，因sem=0，所以处于等待的状态。相比于互斥量的实现，信号量可以将信号初始化为一个任意非负值。</p>
+<h4 id="4-7-尽管生产者一消费者同步采用信号量很容易实现，但它也能用互斥量来实现。"><a href="#4-7-尽管生产者一消费者同步采用信号量很容易实现，但它也能用互斥量来实现。" class="headerlink" title="4.7 尽管生产者一消费者同步采用信号量很容易实现，但它也能用互斥量来实现。"></a>4.7 尽管生产者一消费者同步采用信号量很容易实现，但它也能用互斥量来实现。</h4><p>基本的想法是：让生产者线程和消费者线程共享一个互斥量。用一个被主线程初始化为false的标志变量来表示是否有产品可以被“消费”。这两个线程的执行如下：</p>
+<p><img src="https://raw.githubusercontent.com/Sweet196/Picgo-images/main/problems/202208211824314.png" alt="image.png"></p>
+<p>如果消费者线程首先进入循环，它会看到没有可用的信息(message_available值为false)并在调用pthread_mutex_unlock后返回。消费者线程重复上述过程，直到生产者线程生产出信息。请编写一个双线程程序，实现这个版本的生产者一消费者同步。可以将这个程序一般化吗？让它能够运行2k个线程，其中奇数线程是消费者，偶数线程是生产者。另外，将程序一般化为每个线程既是生产者又是消费者，能做到吗？例如，线程q既要发送一条信息给线程(q+1) mod t,又要从线程(q-1+t) mod t接收一条信息，如何编写程序？要使用忙等待吗？</p>
+<h5 id="解决思路"><a href="#解决思路" class="headerlink" title="解决思路"></a>解决思路</h5><p>我们使用<strong>队列queue</strong>来表示上述具有n个缓冲区的缓冲池。每投入（取出）一个产品，缓存池中就相应的插入（删除）一个节点。由于该缓冲池是被组织成队列的形式，因此，队空队满的判断条件分别如下：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">q-&gt;front == q-&gt;rear;<span class="comment">//队空</span></span><br><span class="line">q-&gt;front == (q-&gt;rear+<span class="number">1</span>)%SIZE;<span class="comment">//队满</span></span><br></pre></td></tr></table></figure>
+<p>引入一个整型变量num，置其初值为0，当生产者（消费者）进程向缓冲池投入（取走）一个产品时，num对应的加一（减一）。同时，由于缓冲区是共享的，因此需要对生产者、消费者使用缓冲区进行限制，以此达到同步的效果，即在生产者向缓冲区投入产品时，消费者不得使用缓冲池；消费者向缓冲区取出产品时同理。</p>
+<p>生产者和消费者的操作进程可如下表示：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">producer</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">sem_wait</span>();</span><br><span class="line">    <span class="built_in">lockf</span>();</span><br><span class="line">    <span class="built_in">QueueFull</span>();</span><br><span class="line">    <span class="built_in">Enqueue</span>();</span><br><span class="line">    <span class="built_in">unlockf</span>();</span><br><span class="line">    <span class="built_in">sem_post</span>();</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">customer</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">sem_wait</span>();</span><br><span class="line">    <span class="built_in">lockf</span>();</span><br><span class="line">    <span class="built_in">QueueEmpty</span>();</span><br><span class="line">    <span class="built_in">Dequeue</span>();</span><br><span class="line">    <span class="built_in">unlockf</span>();</span><br><span class="line">    <span class="built_in">sem_post</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="双线程"><a href="#双线程" class="headerlink" title="双线程"></a>双线程</h5><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> TRUE  1</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> FALSE 0</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> SIZE 2</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">srand</span>((<span class="type">unsigned</span> <span class="type">int</span>)<span class="built_in">time</span>(<span class="literal">NULL</span>));</span><br><span class="line">	<span class="comment">//信号量地址，信号量在线程间共享，信号量的初始值 </span></span><br><span class="line">	<span class="built_in">sem_init</span>(&amp;sem.count, <span class="number">0</span>, <span class="number">10</span>);    <span class="comment">//信号量初始化（做多容纳10条消息，容纳了10条生产者将不会生产消息）</span></span><br><span class="line">	<span class="built_in">pthread_mutex_init</span>(&amp;mutex, <span class="literal">NULL</span>);  <span class="comment">//互斥锁初始化</span></span><br><span class="line">	<span class="built_in">InitQueue</span>(&amp;(sem.q));   <span class="comment">//队列初始化</span></span><br><span class="line">	<span class="type">pthread_t</span> producid;</span><br><span class="line">	<span class="type">pthread_t</span> consumid;</span><br><span class="line">	<span class="built_in">pthread_create</span>(&amp;producid, <span class="literal">NULL</span>, Producer, <span class="literal">NULL</span>);   <span class="comment">//创建生产者线程</span></span><br><span class="line">	<span class="built_in">pthread_create</span>(&amp;consumid, <span class="literal">NULL</span>, Customer, <span class="literal">NULL</span>);   <span class="comment">//创建消费者线程</span></span><br><span class="line">	<span class="built_in">pthread_join</span>(consumid, <span class="literal">NULL</span>);    <span class="comment">//线程等待，如果没有这一步，主程序会直接结束，导致线程也直接退出。</span></span><br><span class="line">	<span class="built_in">sem_destroy</span>(&amp;sem.count);         <span class="comment">//信号量的销毁 </span></span><br><span class="line">	<span class="built_in">pthread_mutex_destroy</span>(&amp;mutex);   <span class="comment">//互斥锁的销毁</span></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="2k进程"><a href="#2k进程" class="headerlink" title="2k进程"></a>2k进程</h5><p>与上述双线程大致一致，将队列大小SIZE更改为2k即可。</p>
+<h5 id="既是消费者又是生产者"><a href="#既是消费者又是生产者" class="headerlink" title="既是消费者又是生产者"></a>既是消费者又是生产者</h5><p>将队列大小SIZE更改为1能满足一部分操作。</p>
+<h5 id="q向-q-1-modt发送，从-q-1-modt接收"><a href="#q向-q-1-modt发送，从-q-1-modt接收" class="headerlink" title="q向(q+1)modt发送，从(q-1)modt接收"></a>q向(q+1)modt发送，从(q-1)modt接收</h5><p>需要创建t个队列，通过忙等待的方式进行生产者消费者进程同步。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%B9%B6%E8%A1%8C%E8%AE%BE%E8%AE%A1/" rel="tag"># 并行设计</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/08/21/%E5%B9%B6%E8%A1%8C%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%AC%AC%E4%B8%80%E6%AC%A1%E4%BD%9C%E4%B8%9A/" rel="prev" title="并行程序设计第一次作业">
+                  <i class="fa fa-chevron-left"></i> 并行程序设计第一次作业
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/08/22/Pthread%E4%BD%BF%E7%94%A8%E6%96%87%E6%A1%A3/" rel="next" title="Pthread使用文档">
+                  Pthread使用文档 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Sweet196</span>
+</div>
+  <!--
+    <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+  -->
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"mhchem":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+
+  
+  <script type="text/javascript"
+  color="0,0,255" opacity='0.45' zIndex="-2" count="90" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","model":{"jsonPath":"live2d-widget-model-wanko"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false,"tagMode":false});</script></body>
+</html>
